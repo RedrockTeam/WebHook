@@ -6,7 +6,6 @@ var fs = require("fs");
 var stdout = process.stdout;
 var stdin = process.stdin;
 var path = require('path');
-var test =  require('tape');
 var dirlog = __dirname + "/log/";
 
 function getTime(){
@@ -38,7 +37,10 @@ function startServer(){
 			res.statusCode = 404;
 			res.end("ERROR");
 		});
+		
 	}).listen(7890);
+
+	console.log("server Listening on PORT 7890");
 
 	handler.on('error', function(msg){
 		errorLog(msg);
